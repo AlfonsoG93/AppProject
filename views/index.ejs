@@ -1,0 +1,19 @@
+<% if(currentUser){ %>
+  <h3> Hello,
+    <%=currentUser.username%> ! </h3>
+  <%}%>
+
+    <p>Welcome to
+      <%= title %>
+    </p>
+
+    <% if(currentUser){ %>
+      <p>
+        Did you know you have had your account since
+        <%= currentUser.createdAt %> ?
+      </p>
+      <% } else { %>
+          <p>
+          You should <a href="/signup">sign up TODAY </a>
+          </p>
+         <% } %>

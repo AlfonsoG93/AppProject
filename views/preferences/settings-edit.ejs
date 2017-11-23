@@ -1,0 +1,38 @@
+<h2> Edit your Profile </h2>
+
+<p>
+  Your email is <b>
+  <%= currentUser.email %>
+</b>.
+</p>
+
+<p>
+  <small> (For "security reasons" we don't allow changing emails.)  </small>
+</p>
+
+<form id="form" action="/process-signup" method="post">
+  <%# fullName
+      password%>
+    <label for="username-input"> Username </label>
+    <input id="username-input" type="text" name="editUsername" value="<%=currentUser.username%>" placeholder="e.g John Snow" />
+    <br/>
+
+    <label for="password-input"> Password </label>
+    <input id="password-input" type="password" name="editPassword" placeholder="e.g ygritte123" />
+    <br/>
+
+    <label for="martial-arts"> Martial Arts </label>
+    <input id="martial-arts" type="text" name="martialartsInput" value="<%=discipline%>" placeholder="e.g Kung-fu">
+    <br/>
+
+    <label for="experience"> Experience </label>
+    <select id="experience" name="experienceInput">
+       <option value="beginner">Beginner</option>
+       <option value="intermidiate">Intermidiate</option>
+       <option value="advance">Advance</option>
+       <option value="expert">Expert</option>
+</select>
+    <br/>
+  <button>  Save Changes </button>
+
+</form>
