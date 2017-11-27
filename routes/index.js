@@ -4,8 +4,28 @@ const router  = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  if(req.user){
+    MartialartModel
+    .find({
+      creator: req.user._id
+    })
+    .sort({
+      title: 1
+    })
+    .exec()
+    .then((MartialArtPosts) => {
+      res.locals.maPosts = MartialArtPosts;
+      res.render('index');
+    })
+    .catch((err) => {
+      next(err);
+    });
+  }else {
+    res.render('index');
+  }
 });
+
+
 router.get("/search", (req, res, next) => {
   const searchRegex = new RegExp(req.query.userSearch, "i");
 
@@ -28,5 +48,6 @@ router.get("/search", (req, res, next) => {
     });
 
 });
+
 
 module.exports = router;

@@ -9,33 +9,33 @@
 <img src="<%= martialartDetails.image %>">
 <br>
 
-<%  if (currentUser.email === martialartDetails.creator) { %>
-<a href="/martialarts/<%= martialartDetails._id %>/edit">
+<%  if (currentUser._id.toString() === martialartDetails.creator.toString()) { %>
+  <a href="/martialarts/<%= martialartDetails._id %>/edit">
   Edit this Post
 </a>
-<% }%>
-<%  if (currentUser.email === martialartDetails.creator) { %>
-<form  action="/martialarts/<%= martialartDetails._id %>/delete" method="post">
-  <button>
+  <% }%>
+
+    <%  if (currentUser._id.toString() === martialartDetails.creator.toString()) { %>
+      <form action="/martialarts/<%= martialartDetails._id %>/delete" method="post">
+        <button>
      Delete Post
  </button>
-</form>
-<% } %>
+      </form>
+      <% } %>
 
-<h3> Comments </h3>
+        <h3> Comments </h3>
 
-<a href="/martialarts/<%= martialartDetails._id %>/comments/new">
+        <a href="/martialarts/<%= martialartDetails._id %>/comments/new">
   Write a comment
 </a>
 
-<ul>
-  <% listOfComments.forEach((oneComment) => { %>
-    <li>
-      <p>
-      <h4><%= oneComment.authorUname %> :</h4>
-
-        <%= oneComment.content %>
-      </p>
-    </li>
-    <% }); %>
-</ul>
+        <ul>
+          <% listOfComments.forEach((oneComment) => { %>
+            <li>
+              <p>
+                <h4>  <%= oneComment.authorUname %> :</h4>
+                <%= oneComment.content %>
+              </p>
+            </li>
+            <% }); %>
+        </ul>

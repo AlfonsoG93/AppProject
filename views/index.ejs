@@ -1,22 +1,38 @@
-
 <div class="container">
-<div class="row">
-<div class=" col-sm-12 col-md-6 col-lg-4 searchbar ">
-  <% if(currentUser){ %>
-    <h3> Search Martial Arts Posts</h3>
-    <br/>
-    <form method="get" action ="/search" >
-    <div class="form-group">
-      <label id="searchPost">Search</label>
-      <input id="searchPost" class="form-control" name="postsearchInput" placeholder="e.g Kung-Fu" />
-      </div>
-    <% } else { %>
-      <p>
-      You should <a href="/signup">sign up TODAY </a>
-      </p>
-      <% } %>
-  </form>
+  <div class="row">
+    <div class=" col-sm-12 col-md-6 col-lg-4 searchbar ">
+
+      <% if(currentUser){ %>
+        <h3> Search Martial Arts Posts</h3>
+        <br/>
+        <form method="get" action="/search">
+          <div class="form-group">
+            <input id="searchPost" class="form-control" name="postsearchInput" placeholder="e.g Kung-Fu" />
+        </form>
+        </div>
+    </div>
+  </div>
+
+  <h2> Your Posts </h2>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 homepage-posts">
+      <% maPosts.forEach((onePost) => { %>
+        <h3><%=onePost.name%></h3>
+        <h3><%=onePost.title%></h3>
+        <img src="<%=onePost.image%>" />
+        <br />
+        <a href="/martialarts/<%=onePost.id%>"> View Post</a>
+        <a href="/martialarts/<%=onePost.id%>/edit"> Edit Post</a>
+        <% }) %>
+    </div>
+  </div>
 
 </div>
-</div>
-</div>
+
+<% } else { %>
+  <p>
+    You should <a href="/signup">sign up TODAY </a>
+  </p>
+
+  <%}%>

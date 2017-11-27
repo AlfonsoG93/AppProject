@@ -1,6 +1,7 @@
 const express = require("express");
 const router  = express.Router();
 const UserModel = require("../models/users");
+const MartialArt = require("../models/martialart");
 
 router.get("/profile", (req, res, next) =>{
 
@@ -11,8 +12,22 @@ router.get("/profile", (req, res, next) =>{
     // (prevents the rest of the code from running)
     return;
   }
-
-  res.render('preferences/profile');
+    MartialArt
+    .find({
+      creator : req.user._id
+    })
+    .sort({
+      title :1
+    })
+    .exec()
+    .then((MartialArtPosts) => {
+      res.locals.maPost = MartialArtPosts;
+      res.render('preferences/profile');
+    })
+    .catch((err) => {
+      next(err);
+    });
+  module.exports = router;
 
 });
 

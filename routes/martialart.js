@@ -40,7 +40,7 @@ router.post("/martialarts", (req, res, next) =>{
     description:req.body.descriptionInput,
     image:req.body.imageInput,
     location:req.body.locationInput,
-    creator:req.user.email
+    creator:req.user
   });
   theMartialArt.save()
   .then(() => {
@@ -64,14 +64,14 @@ router.get("/martialarts/:maId", (req, res, next) => {
 
   MartialartModel.findById(req.params.maId)
   .then((martialartFromDb) => {
-console.log("seaarch");
+
     res.locals.martialartDetails = martialartFromDb;
 
     return CommentModel.find({
       post: req.params.maId
     }).exec();
   }).then((commentResults) => {
-    console.log("find comment");
+
     res.locals.listOfComments = commentResults;
     res.render("martialarts-views/martialart-details");
   })
@@ -130,7 +130,7 @@ router.get("/martialarts/:maId/edit", (req, res, next) => {
 });
 
 router.post("/martialarts/:maId/delete" , (req, res, next) => {
-  martialartModel.findByIdAndRemove(req.params.maId)
+  MartialartModel.findByIdAndRemove(req.params.maId)
   .then((martialartFromDb) => {
     res.redirect("/martialarts");
   })

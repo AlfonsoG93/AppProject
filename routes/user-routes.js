@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const UserModel = require("../models/users");
 const router = express.Router();
 const passport = require("passport");
-
+const MartialArt = require("../models/martialart");
 
 //STEP  1: show the sign up page
 router.get("/signup", (req, res, next) => {

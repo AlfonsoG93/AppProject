@@ -25,21 +25,13 @@
 
         </li>
 
-        <li>
-          <%  if (currentUser.email === oneMartialArt.creator) { %>
+          <%  if (currentUser._id.toString() === oneMartialArt.creator.toString()) { %>
+            <li>
             <a href="/martialarts/<%=oneMartialArt._id %>/edit">
         Edit Details
         </a>
+        </li>
             <%} %>
-        </li>
-
-        <li>
-          <% if (currentUser.email === oneMartialArt.creator) { %>
-            <form method="post" action="/martialarts/<%=oneMartialArt._id %>/delete">
-              <btn> Delete Post </btn>
-            </form>
-        </li>
-        <%} %>
 
       </ul>
     </li>

@@ -22,8 +22,8 @@ router.post("/martialarts/:maId/comments", (req, res, next) => {
   MartialArtsModel.findById(req.params.maId)
   .then((MaFromDb) => {
     const theComment = new CommentModel({
-      content:req.body.contentInput,
-      creatorUname:req.user.username,
+      content:req.body.commentContent,
+      authorUname:req.user.username,
       post: req.params.maId
     });
 
@@ -31,7 +31,7 @@ router.post("/martialarts/:maId/comments", (req, res, next) => {
     return theComment.save();
   })
   .then(() => {
-    res.redirect(`martialarts/${req.params.maId}/comments`);
+    res.redirect(`/martialarts/${req.params.maId}`);
   })
   .catch((err) => {
     res.locals.validationErrors = err.errors;

@@ -52,20 +52,23 @@ app.use((req, res, next) => {
   next();
 });
 
+
 const index = require('./routes/index');
 app.use('/', index);
 
 const userRouter = require('./routes/user-routes');
 app.use(userRouter);
 
-const messageRouter = require("./routes/messages");
-app.use(messageRouter);
 const preferenceRouter = require('./routes/preferences');
 app.use(preferenceRouter);
+
 const martialArtsRouter =require('./routes/martialart');
 app.use(martialArtsRouter);
+
 const commentRouter = require('./routes/comments');
 app.use(commentRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
