@@ -8,6 +8,10 @@ const layouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('passport');
 
+//Load environment variables from the ".env" file
+require("dotenv").config();
+
+
 require("./config/mongoose-setup");
 require("./config/passport-setup");
 const app = express();
@@ -18,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Project managing app';
+app.locals.title = 'Kumeet';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -56,7 +60,12 @@ app.use(userRouter);
 
 const messageRouter = require("./routes/messages");
 app.use(messageRouter);
-
+const preferenceRouter = require('./routes/preferences');
+app.use(preferenceRouter);
+const martialArtsRouter =require('./routes/martialart');
+app.use(martialArtsRouter);
+const commentRouter = require('./routes/comments');
+app.use(commentRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

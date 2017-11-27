@@ -1,19 +1,22 @@
-<% if(currentUser){ %>
-  <h3> Hello,
-    <%=currentUser.username%> ! </h3>
-  <%}%>
 
-    <p>Welcome to
-      <%= title %>
-    </p>
-
-    <% if(currentUser){ %>
+<div class="container">
+<div class="row">
+<div class=" col-sm-12 col-md-6 col-lg-4 searchbar ">
+  <% if(currentUser){ %>
+    <h3> Search Martial Arts Posts</h3>
+    <br/>
+    <form method="get" action ="/search" >
+    <div class="form-group">
+      <label id="searchPost">Search</label>
+      <input id="searchPost" class="form-control" name="postsearchInput" placeholder="e.g Kung-Fu" />
+      </div>
+    <% } else { %>
       <p>
-        Did you know you have had your account since
-        <%= currentUser.createdAt %> ?
+      You should <a href="/signup">sign up TODAY </a>
       </p>
-      <% } else { %>
-          <p>
-          You should <a href="/signup">sign up TODAY </a>
-          </p>
-         <% } %>
+      <% } %>
+  </form>
+
+</div>
+</div>
+</div>

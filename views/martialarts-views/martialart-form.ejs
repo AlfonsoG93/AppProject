@@ -1,0 +1,42 @@
+<h2> Add a Martial art Post </h2>
+<%# weird if statement with "typeof" to avoid error%>
+<% if(typeof validationErrors !== "undefined") { %>
+  <ul class="error">
+    <% for (let field in validationErrors){ %>
+      <li>
+        <%= validationErrors[field].message %>
+      </li>
+      <% } %>
+  </ul>
+  <% } %>
+
+
+    <form id="form" action="/martialarts" method="post">
+
+      <label for="martialart"> Martialart </label>
+      <select id="martialart" name="martialartInput">
+        <option value="Kung-Fu">Kung-Fu</option>
+         <option value="Karate">Karate</option>
+         <option value="MMA">MMA</option>
+         <option value="Other">Other</option>
+      <br/>
+
+      <label for="title">Title</label>
+      <input id="title" type="text" name="titleInput" placeholder="e.g looking for sparring">
+      <br>
+
+      <label for="description">description</label>
+      <textarea id="description" name="descriptionInput" placeholder="e.g some description"></textarea>
+      <br>
+
+      <label for="image">Image</label>
+      <input type="text" name="imageInput" placeholder="e.g some url">
+      <br>
+
+      <label for="location">Location</label>
+      <input type="text" name="locationInput" placeholder="e.g Miami">
+      <br>
+
+
+      <button> Add Martial Art Post </button>
+    </form>

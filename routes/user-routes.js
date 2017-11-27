@@ -25,7 +25,7 @@ router.post("/process-signup", (req, res, next) => {
   const salt = bcrypt.genSaltSync(10);
 
   if (req.body.signupUsername === "") {
-    res.locals.errorMessage = "We need a name";
+    res.locals.errorMessage = "You need a username";
     res.render("user-views/signup-page");
 
     return;

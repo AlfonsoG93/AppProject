@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const UserModel = require("../models/users");
 // new Schema ({schema},{settings})
 const messageSchema = new Schema({
 
@@ -15,6 +14,7 @@ const messageSchema = new Schema({
 
   reciever :{
     type: String,
+    required:[true, "Need recipient of message"]
   }
 },
 

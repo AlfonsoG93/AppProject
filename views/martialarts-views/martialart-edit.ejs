@@ -1,0 +1,45 @@
+<h2> Edit this Post </h2>
+
+<% if(typeof validationErrors !== "undefined") { %>
+  <ul class="error">
+    <% for (let field in validationErrors){ %>
+      <li>
+        <%= validationErrors[field].message %>
+      </li>
+      <% } %>
+  </ul>
+  <% } %>
+
+    <form action="/martialarts/<%=martialArtDetails.id %>" method="post">
+
+      <label for="martialart"> Martial Art </label>
+      <select id="martialart" name="martialartInput">
+      <option value="Kung-Fu">Kung-Fu</option>
+       <option value="Karate">Karate</option>
+       <option value="MMA">MMA</option>
+       <option value="Other">Other</option>
+    <br/>
+    <label for="title"> Title of the Post </label>
+    <input id="title" type="text" name="titleInput" value="<%= martialArtDetails.title %>" placeholder="e.g looking for sparring partner">
+    <br>
+
+    <label for="image">Image</label>
+    <input type="text" name="imageInput" placeholder="e.g some url">
+    <br>
+
+    <h3>Current Image </h3>
+    <img src="<%=martialArtDetails.image %>">
+    <br>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="descriptionInput" placeholder="e.g some description"><%=martialArtDetails.description%></textarea>
+    <br>
+
+
+    <label for="location">Location</label>
+    <input type="text" name="locationInput" value="<%= martialArtDetails.location %>" placeholder="e.g Miami">
+    <br>
+
+
+    <button> Save Changes </button>
+  </form>

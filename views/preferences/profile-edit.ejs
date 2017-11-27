@@ -10,19 +10,15 @@
   <small> (For "security reasons" we don't allow changing emails.)  </small>
 </p>
 
-<form id="form" action="/process-signup" method="post">
+<form id="form" action="/profile" method="post">
   <%# fullName
       password%>
     <label for="username-input"> Username </label>
     <input id="username-input" type="text" name="editUsername" value="<%=currentUser.username%>" placeholder="e.g John Snow" />
     <br/>
 
-    <label for="password-input"> Password </label>
-    <input id="password-input" type="password" name="editPassword" placeholder="e.g ygritte123" />
-    <br/>
-
     <label for="martial-arts"> Martial Arts </label>
-    <input id="martial-arts" type="text" name="martialartsInput" value="<%=discipline%>" placeholder="e.g Kung-fu">
+    <input id="martial-arts" type="text" name="martialartsInput" value="<%=currentUser.discipline%>" placeholder="e.g Kung-fu">
     <br/>
 
     <label for="experience"> Experience </label>

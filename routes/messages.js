@@ -31,35 +31,31 @@ router.get("/messageboard/new-msg", (req, res, next) => {
 
 router.post('/messageboard', (req, res, next) => {
 
-  if (req.user === undefined) {
-    res.redirect("/login");
-    return;
-  }
   UserModel.find({
     username: req.body.recieverInput
-   },(err,foundUser)=>{
-      if(err){
-        next(err);
-        return;
-      }
-      if(foundUser){
-        const themessage = new Messages({
-          sender: req.user._id,
-          content: req.body.messageInput,
-          reciever: foundUser,
+  }, (err, foundUser) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    if (foundUser) {
+      const themessage = new Messages({
+        sender: req.user._id,
+        content: req.body.messageInput,
+        reciever: foundUser,
+      });
+      themessage.save()
+        .then(() => {
+          res.redirect("/messageboard");
+        })
+        .catch((err) => {
+          next(err);
         });
-        themessage.save()
-          .then(() => {
-            res.redirect("/messageboard");
-          })
-          .catch((err) => {
-            next(err);
-          });
-      }
+    }
 
 
 
-    });
+  });
 
 
 });

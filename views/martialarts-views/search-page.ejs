@@ -1,0 +1,47 @@
+<h2> Search Results</h2>
+
+<ul>
+  <%  listOfResults.forEach((oneMartialArt) => { %>
+    <li>
+      <h3> <%= oneMartialArt.name %> </h3>
+      <h3>
+        <%= oneMartialArt.title %>
+      </h3>
+      <img src="<%= oneMartialArt.image %>" />
+
+      <p>
+        <%= oneMartialArt.description %>
+      </p>
+
+      <p>
+        <%= oneMartialArt.location %>
+      </p>
+
+      <ul>
+        <li>
+          <a href="/martialarts/<%= oneMartialArt._id %>">
+        View details
+          </a>
+
+        </li>
+
+        <li>
+          <%  if (currentUser.email === oneMartialArt.creator) { %>
+            <a href="/martialarts/<%=oneMartialArt._id %>/edit">
+        Edit Details
+        </a>
+            <%} %>
+        </li>
+
+        <li>
+          <% if (currentUser.email === oneMartialArt.creator) { %>
+            <form method="post" action="/martialarts/<%=oneMartialArt._id %>/delete">
+              <btn> Delete Post </btn>
+            </form>
+        </li>
+        <%} %>
+
+      </ul>
+    </li>
+    <% }); %>
+</ul>

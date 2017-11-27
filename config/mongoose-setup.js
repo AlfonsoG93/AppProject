@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = Promise;
 
 
-mongoose.connect((`mongodb://localhost/kumeet`), {
+mongoose.connect((process.env.DATABASE_URL), {
   useMongoClient: true
 })
 
