@@ -40,12 +40,7 @@ router.post("/process-signup", (req, res, next) => {
     //early return: stops function from continuing since there's an error
     return;
   }
-  if (req.body.signupmartialartsInput === "") {
-    res.locals.errorMessage = "What martial arts do you practise";
-    res.render("user-views/signup-page");
 
-    return;
-}
 
 
   UserModel.findOne({
@@ -61,6 +56,7 @@ router.post("/process-signup", (req, res, next) => {
 
         return;
       }
+
 
       //encrypt the password password submitted by the user from the form
       //

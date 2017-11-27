@@ -1,7 +1,7 @@
 const express = require("express");
 
 const MartialArtsModel = require("../models/martialart");
-
+const UserModel = require("../models/users");
 const CommentModel = require("../models/comments");
 const router = express.Router();
 
@@ -18,6 +18,7 @@ router.get("/martialarts/:maId/comments/new", (req, res, next) => {
 });
 
 router.post("/martialarts/:maId/comments", (req, res, next) => {
+
   MartialArtsModel.findById(req.params.maId)
   .then((MaFromDb) => {
     const theComment = new CommentModel({
