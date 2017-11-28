@@ -27,22 +27,22 @@
         </form>
         <% } %>
 </div>
-<div class="post-list-title">
+<div class="post-list-title comment-tag">
   <h2 class=" col-xs-12 col-sm-12 col-md-6 col-lg-4">
 Comments 
 </h2>
 
-<ul>
+<div class="comment-board">
+<ul class="list-group comment-list">
   <% listOfComments.forEach((oneComment) => { %>
-    <li>
+    <li class="list-group-item onecomment">
       <p>
-        <h4>
-          <%= oneComment.authorUname %> :</h4>
-        <%= oneComment.content %>
+        <h4><%= oneComment.authorUname %>: <%= oneComment.content %></h4> 
       </p>
     </li>
     <% }); %>
 </ul>
+</div>
 
 <div class="add-post-title">
   <div class="col-sm-12 col-md-6">

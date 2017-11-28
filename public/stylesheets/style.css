@@ -25,7 +25,11 @@ h2{
   font-size: 1.5em;
 }
 .index-signup a{
-  color: white;
+  color: white;  
+  
+  
+  
+  
 }
 
 .homepage-posts{
@@ -142,8 +146,24 @@ label{
   background-color: black;
 
 }
+.comment-board{
+  margin : 5%;
+}
 .ma-details{
   text-align: center;
+  font-weight: bold;
+}
+
+.onecomment {
+  background-color: white;
+  border-color: black;
+  margin: 10px;
+  border-radius: 15px;
+  border-style: solid;
+  color: black;
+  
+} 
+.onecomment{
   font-weight: bold;
 }
 
