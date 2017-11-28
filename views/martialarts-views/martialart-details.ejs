@@ -1,41 +1,55 @@
-<h2> Post Details </h2>
-<h3> <%= martialartDetails.name %> </h3>
-<p> Title
-  <%= martialartDetails.title %>
-</p>
-<p>
-  <%= martialartDetails.description %>
-</p>
-<img src="<%= martialartDetails.image %>">
-<br>
+<div class="add-post-title">
+  <h2 class="col-sm-12 col-md-6 col-lg-4"> Post Details </h2>
 
-<%  if (currentUser._id.toString() === martialartDetails.creator.toString()) { %>
-  <a href="/martialarts/<%= martialartDetails._id %>/edit">
-  Edit this Post
-</a>
-  <% }%>
+<div class="ma-details">
+  <h3>
+    <%= martialartDetails.name %>
+  </h3>
+  <p> Title
+    <%= martialartDetails.title %>
+  </p>
+  <p>
+    <%= martialartDetails.description %>
+  </p>
+  <img src="<%= martialartDetails.image %>">
+  <br>
+  <%  if (currentUser._id.toString() === martialartDetails.creator.toString()) { %>
+    <a href="/martialarts/<%= martialartDetails._id %>/edit">
+      Edit this Post
+    </a>
+    <% }%>
 
-    <%  if (currentUser._id.toString() === martialartDetails.creator.toString()) { %>
-      <form action="/martialarts/<%= martialartDetails._id %>/delete" method="post">
-        <button>
-     Delete Post
- </button>
-      </form>
-      <% } %>
+      <%  if (currentUser._id.toString() === martialartDetails.creator.toString()) { %>
+        <form id="form" action="/martialarts/<%= martialartDetails._id %>/delete" method="post">
+          <button class="btn">
+            Delete Post
+          </button>
+        </form>
+        <% } %>
+</div>
+<div class="post-list-title">
+  <h2 class=" col-xs-12 col-sm-12 col-md-6 col-lg-4">
+Comments 
+</h2>
 
-        <h3> Comments </h3>
+<ul>
+  <% listOfComments.forEach((oneComment) => { %>
+    <li>
+      <p>
+        <h4>
+          <%= oneComment.authorUname %> :</h4>
+        <%= oneComment.content %>
+      </p>
+    </li>
+    <% }); %>
+</ul>
 
-        <a href="/martialarts/<%= martialartDetails._id %>/comments/new">
-  Write a comment
-</a>
-
-        <ul>
-          <% listOfComments.forEach((oneComment) => { %>
-            <li>
-              <p>
-                <h4>  <%= oneComment.authorUname %> :</h4>
-                <%= oneComment.content %>
-              </p>
-            </li>
-            <% }); %>
-        </ul>
+<div class="add-post-title">
+  <div class="col-sm-12 col-md-6">
+    <a href="/martialarts/<%= martialartDetails._id %>/comments/new">
+      <button class="btn btn-primary">
+        Write a comment
+      </button>
+    </a>
+  </div>
+</div>

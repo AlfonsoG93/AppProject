@@ -6,28 +6,146 @@ a {
   color: blue;
   margin:  5px;
   text-decoration: none;
+  text-align: center;
 }
 .navbar{
   background-color: rgb(48, 48, 46);
   color: red;
   font-size: 1.5em;
 }
-
-
-.searchbar{
-  align-items: center;
+h3,
+h2{
   text-align: center;
+}
+
+.index-signup{
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+.index-signup a{
+  color: white;
+}
+
+.homepage-posts{
+  background-color: grey;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+.search-row{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.searchbar{
+  text-align: center;
+  justify-content: center;
   border-style: solid;
   border-radius: 30px;
   margin: 0 auto;
-  justify-content: center;
   background-color: crimson;
-  margin-top: 35%;
+
 }
+.homepage-posts-list{
+  text-align: center;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: white;
+  margin: 5px;
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+}
+
+img {
+  margin: 5px;
+  width: 250px;
+  height: 250px;
+
+}
+
+.homepage-posts-list img {
+  margin: 5px;
+}
+.homepage-post-title {
+  color:white;
+  background-color: black;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
 .searchbar > p{
   border-radius: 30px;
 }
+.post-list-title{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.post-list-title h2{
+  margin: 0 auto;
+  border-style: solid;
+  border-radius: 25px;
+  color:white;
+  background-color: black;
+}
+.martialart-posts{
+  margin: 0 auto;
+}
 
+.all-posts{
+  
+  margin: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  border-style:solid;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+}
+.all-posts a{
+  text-decoration: none;
+}
+
+.comment-button{
+  justify-content: center;
+}
+.profile-wrap{
+  margin-top:10%;
+}
+.profile{
+ margin-top: 20%;
+ margin: 0 auto;
+}
+.profile-info{
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+select{
+  text-align: center;
+}
+label{
+  font-weight: bold;
+}
+.add-post-title {
+  margin-top: 5%;
+}
+.add-post-title h2{
+  margin: 0 auto;
+  border-style: solid;
+  border-radius: 25px;
+  color:white;
+  background-color: black;
+
+}
+.ma-details{
+  text-align: center;
+  font-weight: bold;
+}
 
 #form {
   margin: 30px auto;
@@ -64,8 +182,8 @@ a {
 }
 
 #form button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
+  background: #b4102c;
+  border: 1px solid #d13e52;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -80,6 +198,7 @@ a {
 
 #form button:hover {
   background: #fff;
-  color: #43a3e6;
+  color: #5c1910;
+  font-weight: bold;
   transition: .3s ease background;
 }

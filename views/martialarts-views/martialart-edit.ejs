@@ -1,45 +1,65 @@
-<h2> Edit this Post </h2>
+<div class="row post-list-title">
 
-<% if(typeof validationErrors !== "undefined") { %>
-  <ul class="error">
-    <% for (let field in validationErrors){ %>
-      <li>
-        <%= validationErrors[field].message %>
-      </li>
+  <h2 class=" col-sm-12 col-md-6 col-lg-4">
+
+    Edit this Post </h2>
+
+    <% if(typeof validationErrors !== "undefined") { %>
+      <ul class="error">
+        <% for (let field in validationErrors){ %>
+          <li>
+            <%= validationErrors[field].message %>
+          </li>
+          <% } %>
+      </ul>
       <% } %>
-  </ul>
-  <% } %>
 
-    <form action="/martialarts/<%=martialArtDetails.id %>" method="post">
+  </div>
+</div>
 
+<div class="edit-form">
+  <form id="form" action="/martialarts/<%=martialArtDetails.id %>" method="post">
+
+    <div class="form-group">
       <label for="martialart"> Martial Art </label>
-      <select id="martialart" name="martialartInput">
-      <option value="Kung-Fu">Kung-Fu</option>
-       <option value="Karate">Karate</option>
-       <option value="MMA">MMA</option>
-       <option value="Other">Other</option>
-    <br/>
-    <label for="title"> Title of the Post </label>
-    <input id="title" type="text" name="titleInput" value="<%= martialArtDetails.title %>" placeholder="e.g looking for sparring partner">
-    <br>
+      <select class="form-control" id="martialart" name="martialartInput">
+        <option value="Kung-Fu">Kung-Fu</option>
+        <option value="Karate">Karate</option>
+        <option value="MMA">MMA</option>
+        <option value="Other">Other</option>
+        <br>
+    </div>
 
-    <label for="image">Image</label>
-    <input type="text" name="imageInput" placeholder="e.g some url">
-    <br>
+    <div class="form-group">
+      <label for="title"> Title of the Post </label>
+      <input class="form-control" id="title" type="text" name="titleInput" value="<%= martialArtDetails.title %>" placeholder="e.g looking for sparring partner">
+      <br/>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input class="form-control" type="text" name="imageInput" placeholder="e.g some url">
+      <br>
+    </div>
+    <div class="form-group">
+      <h3>Current Image </h3>
+      <img class="form-control" src="<%=martialArtDetails.image %>">
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="descriptionInput" placeholder="e.g some description">
+        <%=martialArtDetails.description%>
+      </textarea>
+      <br>
+    </div>
 
-    <h3>Current Image </h3>
-    <img src="<%=martialArtDetails.image %>">
-    <br>
-
-    <label for="description">Description</label>
-    <textarea id="description" name="descriptionInput" placeholder="e.g some description"><%=martialArtDetails.description%></textarea>
-    <br>
-
-
+    <div class="form-group">
     <label for="location">Location</label>
-    <input type="text" name="locationInput" value="<%= martialArtDetails.location %>" placeholder="e.g Miami">
-    <br>
+    <input class="form-control" type="text" name="locationInput" value="<%= martialArtDetails.location %>" placeholder="e.g Miami">
+    <br/>
+    </div>
 
 
     <button> Save Changes </button>
   </form>
+</div>

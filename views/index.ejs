@@ -1,38 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class=" col-sm-12 col-md-6 col-lg-4 searchbar ">
+<div class="row search-row">
+  <div class=" col-sm-12 col-md-6 col-lg-4 searchbar">
 
-      <% if(currentUser){ %>
-        <h3> Search Martial Arts Posts</h3>
-        <br/>
-        <form method="get" action="/search">
-          <div class="form-group">
-            <input id="searchPost" class="form-control" name="postsearchInput" placeholder="e.g Kung-Fu" />
-        </form>
-        </div>
-    </div>
+    <% if(currentUser){ %>
+      <h3> Search Martial Arts Posts</h3>
+      <br/>
+      <form method="get" action="/search">
+        <div class="form-group">
+          <input id="searchPost" class="form-control" name="postsearchInput" placeholder="e.g Kung-Fu" />
+      </form>
+      </div>
   </div>
+</div>
+<div class="container-fluid">
+  <div class="homepage-post-title">
+      <h2> Your Posts </h2>
+  </div>
+  
 
-  <h2> Your Posts </h2>
-
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 homepage-posts">
+  <div class="row homepage-posts">
       <% maPosts.forEach((onePost) => { %>
+        <div class="col-sm-12 col-md-5 col-lg-3 homepage-posts-list">
         <h3><%=onePost.name%></h3>
         <h3><%=onePost.title%></h3>
         <img src="<%=onePost.image%>" />
         <br />
         <a href="/martialarts/<%=onePost.id%>"> View Post</a>
         <a href="/martialarts/<%=onePost.id%>/edit"> Edit Post</a>
+        </div>
         <% }) %>
-    </div>
   </div>
+
 
 </div>
 
 <% } else { %>
-  <p>
-    You should <a href="/signup">sign up TODAY </a>
+  <p class="index-signup">
+   <a href="/signup">Sign up TODAY </a>
   </p>
 
   <%}%>

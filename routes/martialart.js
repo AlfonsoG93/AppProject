@@ -44,7 +44,7 @@ router.post("/martialarts", (req, res, next) =>{
   });
   theMartialArt.save()
   .then(() => {
-    res.redirect("/martiarts");
+    res.redirect("/martialarts");
   })
   .catch((err) => {
     next(err);

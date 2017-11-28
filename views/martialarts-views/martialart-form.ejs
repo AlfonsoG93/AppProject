@@ -1,42 +1,56 @@
-<h2> Add a Martial art Post </h2>
+<div class ="add-post-title">
+<h2 class="col-sm-12 col-md-6"> Add Martial Art Post </h2>
+</div>
 <%# weird if statement with "typeof" to avoid error%>
-<% if(typeof validationErrors !== "undefined") { %>
-  <ul class="error">
-    <% for (let field in validationErrors){ %>
-      <li>
-        <%= validationErrors[field].message %>
-      </li>
-      <% } %>
-  </ul>
-  <% } %>
+  <% if(typeof validationErrors !== "undefined") { %>
+    <ul class="error">
+      <% for (let field in validationErrors){ %>
+        <li>
+          <%= validationErrors[field].message %>
+        </li>
+        <% } %>
+    </ul>
+    <% } %>
 
+      <div class="container martial-art-form">
+        <form id="form" action="/martialarts" method="post">
 
-    <form id="form" action="/martialarts" method="post">
+          <div class="form-group">
+            <label for="martialart"> Martialart </label>
+            <select class=form-control id="martialart" name="martialartInput">
+              <option value="Kung-Fu">Kung-Fu</option>
+              <option value="Karate">Karate</option>
+              <option value="MMA">MMA</option>
+              <option value="Other">Other</option>
+          </div>
+          <br/>
+          <div class="form-group">
+            <label for="title"> Post Title  </label>
+            <input class="form-control" id="title" type="text" name="titleInput" placeholder="e.g looking for sparring">
+            <br/>
+          </div>
 
-      <label for="martialart"> Martialart </label>
-      <select id="martialart" name="martialartInput">
-        <option value="Kung-Fu">Kung-Fu</option>
-         <option value="Karate">Karate</option>
-         <option value="MMA">MMA</option>
-         <option value="Other">Other</option>
-      <br/>
+          <div class="form-group">
+          <label for="description">description</label>
+          <textarea class="form-control" id="description" name="descriptionInput" placeholder="e.g some description"></textarea>
+          <br>
+        </div>
+      
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input class="form-control" type="text" name="imageInput" placeholder="e.g some url">
+          <br>
 
-      <label for="title">Title</label>
-      <input id="title" type="text" name="titleInput" placeholder="e.g looking for sparring">
-      <br>
+        </div>
 
-      <label for="description">description</label>
-      <textarea id="description" name="descriptionInput" placeholder="e.g some description"></textarea>
-      <br>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input class="form-control" type="text" name="locationInput" placeholder="e.g Miami">
+          <br>
+        </div>
 
-      <label for="image">Image</label>
-      <input type="text" name="imageInput" placeholder="e.g some url">
-      <br>
-
-      <label for="location">Location</label>
-      <input type="text" name="locationInput" placeholder="e.g Miami">
-      <br>
-
-
-      <button> Add Martial Art Post </button>
-    </form>
+      <div class="form-group">
+          <button class = "btn"> Add Martial Art Post </button>
+        </div>
+        </form>
+      </div>

@@ -1,39 +1,43 @@
-<h2> Kumeet Posts</h2>
+<div class="post-list-title">
+  <h2 class="col-sm-12 col-md-6"> Kumeet Posts</h2>
+</div>
 
-<ul>
-  <%  listOfMartialArts.forEach((oneMartialArt) => { %>
-    <li>
-      <h3> <%= oneMartialArt.name %> </h3>
-      <h3>
-        <%= oneMartialArt.title %>
-      </h3>
-      <img src="<%= oneMartialArt.image %>" />
+    <div class="row martialart-posts">
+      <%  listOfMartialArts.forEach((oneMartialArt) => { %>
+        <div class='col-sm-12 col-md-6 col-lg-4 all-posts'>
+          <h3>
+            <%= oneMartialArt.name %>
+          </h3>
+          <h3>
+            <%= oneMartialArt.title %>
+          </h3>
+          <img src="<%= oneMartialArt.image %>" />
 
-      <p>
-        <%= oneMartialArt.description %>
-      </p>
+          <p>
+            <%= oneMartialArt.description %>
+          </p>
 
-      <p>
-        <%= oneMartialArt.location %>
-      </p>
+          <p>
+            <%= oneMartialArt.location %>
+          </p>
 
-      <ul>
-        <li>
+
           <a href="/martialarts/<%= oneMartialArt._id %>">
-        View details
+            View details
           </a>
 
-        </li>
+
 
           <%  if (currentUser._id.toString() === oneMartialArt.creator.toString()) { %>
-            <li>
+
             <a href="/martialarts/<%=oneMartialArt._id %>/edit">
-        Edit Details
-        </a>
-        </li>
+              Edit Details
+            </a>
+
             <%} %>
 
-      </ul>
-    </li>
-    <% }); %>
-</ul>
+
+
+        </div>
+        <% }); %>
+    </div>

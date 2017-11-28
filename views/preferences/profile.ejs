@@ -1,17 +1,33 @@
-<h2> Your Profile </h2>
+<div class="profile-wrap">
+    <div class="col-sm-12 col-md-6 profile">
+        <h2> Your Profile </h2>
 
-<p>
-  Your email is <b>
-  <%= currentUser.email %>
-</b>.
-</p>
+        <div class="profile-info">
+            <p>
+                Your email is
+                <b>
+                    <%= currentUser.email %>
+                </b>.
+            </p>
 
-<p>
-  Your Martial art: <b><%=currentUser.discipline %> </b>
-</p>
+            <p>
+                Your Martial art:
+                <b>
+                    <%=currentUser.discipline %>
+                </b>
+            </p>
 
-<p>Your experience : <b><%=currentUser.experience %> </b></p>
+            <p>Your experience :
+                <b>
+                    <%=currentUser.experience %>
+                </b>
+            </p>
 
-<a href="/profile/profile-edit">
-<button > Edit Your Profile </button>
-</a>
+            <a href="/profile/profile-edit">
+                <button class="btn"> Edit Your Profile </button>
+            </a>
+
+        </div>
+
+    </div>
+</div>

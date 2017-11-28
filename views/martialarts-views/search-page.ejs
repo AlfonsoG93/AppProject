@@ -1,9 +1,13 @@
-<h2> Search Results</h2>
+<div class="post-list-title">
+  <h2 class="col-sm-12 col-md-6"> Search Results</h2>
+</div>
 
-<ul>
+<div class="row martialart-posts">
   <%  listOfResults.forEach((oneMartialArt) => { %>
-    <li>
-      <h3> <%= oneMartialArt.name %> </h3>
+    <div class="col-sm-12 col-md-6 col-lg-4 all-posts">
+      <h3>
+        <%= oneMartialArt.name %>
+      </h3>
       <h3>
         <%= oneMartialArt.title %>
       </h3>
@@ -17,31 +21,22 @@
         <%= oneMartialArt.location %>
       </p>
 
-      <ul>
-        <li>
-          <a href="/martialarts/<%= oneMartialArt._id %>">
+
+      <a href="/martialarts/<%= oneMartialArt._id %>">
         View details
-          </a>
+      </a>
 
-        </li>
-
-        <li>
-          <%  if (currentUser.email === oneMartialArt.creator) { %>
-            <a href="/martialarts/<%=oneMartialArt._id %>/edit">
-        Edit Details
+      <%  if (currentUser.email === oneMartialArt.creator) { %>
+        <a href="/martialarts/<%=oneMartialArt._id %>/edit">
+          Edit Details
         </a>
-            <%} %>
-        </li>
-
-        <li>
+        <%} %>
           <% if (currentUser.email === oneMartialArt.creator) { %>
             <form method="post" action="/martialarts/<%=oneMartialArt._id %>/delete">
               <btn> Delete Post </btn>
             </form>
-        </li>
-        <%} %>
 
-      </ul>
-    </li>
+            <%} %>
+    </div>
     <% }); %>
-</ul>
+</div>

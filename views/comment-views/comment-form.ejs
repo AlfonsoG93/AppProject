@@ -1,5 +1,9 @@
-<h2> Write a comment </h2>
-
+<div class ="add-post-title">
+<h2 class="col-sm-12 col-md-6">
+ <%= MaDetails.name %><br/> 
+<%= MaDetails.title %>
+ </h2>
+</div>
 
 <% if(typeof validationErrors !== "undefined") { %>
   <ul class="error">
@@ -12,15 +16,14 @@
   <% } %>
 
 
-<h3><%= MaDetails.name %> </h3>
-<img src="<%= MaDetails.image %>" />
+<h3> Write Your Comment: </h3>
 
-<form action="/martialarts/<%= MaDetails._id %>/comments" method="post">
-
-  <label for="comment-content"> Your Comment </label>
-  <textarea id="comment-content" name="commentContent" placeholder="e.g Blah"></textarea>
+<form id = "form" action="/martialarts/<%= MaDetails._id %>/comments" method="post">
+<div>
+  <label for="comment-content"></label>
+  <textarea class="form-control" id="comment-content" name="commentContent" placeholder="e.g Blah"></textarea>
 <br/>
-
-  <button> Submit Comment </button>
+</div>
+  <button class= "btn button"> Submit Comment </button>
 
 </form>
