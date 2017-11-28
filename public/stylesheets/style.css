@@ -34,8 +34,10 @@ h2{
 
 .homepage-posts{
   background-color: grey;
-  margin: 0 auto;
   border-radius: 30px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .search-row{
   margin-top: 10%;
@@ -65,8 +67,8 @@ h2{
 
 img {
   margin: 5px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
 
 }
 
@@ -97,6 +99,7 @@ img {
 }
 .martialart-posts{
   margin: 0 auto;
+  justify-content: center;
 }
 
 .all-posts{
